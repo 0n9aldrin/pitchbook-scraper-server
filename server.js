@@ -17,7 +17,7 @@ app.use(cors());
 // Load Google Sheets credentials
 // const CREDENTIALS_PATH = path.join(__dirname, 'credentials.json');
 // const credentials = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf-8'));
-const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS);
+const credentials = JSON.parse(Buffer.from(process.env.GOOGLE_CREDENTIALS, 'base64').toString('utf-8'));
 
 // Initialize Google Sheets API
 const scopes = ['https://www.googleapis.com/auth/spreadsheets'];
