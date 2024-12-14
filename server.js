@@ -67,9 +67,10 @@ app.post('/append-data', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-
-server.keepAliveTimeout = 120000; // 120 seconds
-server.headersTimeout = 120000;  // 120 seconds
+const server = app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+  
+  // Extend keep-alive and headers timeout
+  server.keepAliveTimeout = 120000; // 120 seconds
+  server.headersTimeout = 120000;  // 120 seconds
