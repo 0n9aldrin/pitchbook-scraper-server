@@ -38,7 +38,7 @@ app.post('/append-data', async (req, res) => {
 
     // Prepare the data in the format Sheets API expects
     const values = data.map(person => [
-      person.title,
+    //   person.title,
       person.firstName,
       person.lastName,
       person.email,
